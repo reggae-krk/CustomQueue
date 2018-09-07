@@ -1,6 +1,7 @@
 public class CustomQueue {
 
     private Node first;
+    private Node last;
     private int queueSize = 0;
 
     public void enqueue(String element) {
@@ -29,5 +30,13 @@ public class CustomQueue {
 
     public int getQueueSize() {
         return queueSize;
+    }
+
+    private void updateLast() {
+        Node tempNode = this.first;
+        while (tempNode.getNextNode() != null) {
+            tempNode = tempNode.getNextNode();
+        }
+        this.last = tempNode;
     }
 }
