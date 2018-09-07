@@ -43,4 +43,9 @@ public class CustomQueue {
         }
         this.last = tempNode;
     }
+
+    public boolean isEmpty() {
+        if(first == null) return true;
+        else return false;
+    }
 }
