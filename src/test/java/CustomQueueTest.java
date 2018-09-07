@@ -81,4 +81,14 @@ class CustomQueueTest {
 
         assertEquals(false, customQueue.isEmpty());
     }
+
+    @Test
+    void testIfDequeueMethodThrowsExceptionWhenRemoveAllElements() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+
+        customQueue.dequeue();
+
+        assertThrows(EmptyQueueException.class, () -> customQueue.dequeue());
+    }
 }
