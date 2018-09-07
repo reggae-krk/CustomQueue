@@ -1,9 +1,16 @@
 public class CustomQueue {
 
-    private Node[] queue;
+    private Node first;
     private int queueSize = 0;
 
-    CustomQueue() {
-        this.queue = new Node[10];
+    public void enqueue(String element) {
+        if(this.first == null) {
+            this.first = new Node(element);
+        }
+        else {
+            Node node = new Node(element);
+            node.setNextNode(first);
+            this.first = node;
+        }
     }
 }
