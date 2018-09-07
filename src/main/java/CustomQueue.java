@@ -17,4 +17,11 @@ public class CustomQueue {
     public String peek() {
         return first.getValue();
     }
+
+    public String dequeue() {
+        Node newFirst = first.getNextNode();
+        String dequeueElement = first.getValue();
+        this.first = newFirst;
+        return dequeueElement;
+    }
 }
