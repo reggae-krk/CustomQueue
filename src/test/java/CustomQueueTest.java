@@ -41,6 +41,13 @@ class CustomQueueTest {
     }
 
     @Test
+    void testDequeueWhenQueueIsEmpty() {
+        CustomQueue customQueue = new CustomQueue();
+
+        assertThrows(EmptyQueueException.class, () -> customQueue.dequeue());
+    }
+
+    @Test
     void testGetSize() {
         CustomQueue customQueue = new CustomQueue();
         customQueue.enqueue("test0");

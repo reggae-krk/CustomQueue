@@ -24,6 +24,7 @@ public class CustomQueue {
     }
 
     public String dequeue() {
+        if(first == null) throw new EmptyQueueException("Queue is empty");
         Node newFirst = first.getNextNode();
         String dequeueElement = first.getValue();
         this.first = newFirst;
