@@ -40,4 +40,15 @@ class CustomQueueTest {
 
         assertEquals(2, customQueue.getQueueSize());
     }
+
+    @Test
+    void testGetSizeAfterRemoveElement() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+        customQueue.enqueue("test1");
+
+        customQueue.dequeue();
+
+        assertEquals(1, customQueue.getQueueSize());
+    }
 }
