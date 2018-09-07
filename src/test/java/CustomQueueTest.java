@@ -73,4 +73,12 @@ class CustomQueueTest {
 
         assertEquals(true, customQueue.isEmpty());
     }
+
+    @Test
+    void testIsEmptyWhenQueueIsNotEmpty() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+
+        assertEquals(false, customQueue.isEmpty());
+    }
 }
