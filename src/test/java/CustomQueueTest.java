@@ -31,4 +31,13 @@ class CustomQueueTest {
         assertEquals("test1", customQueue.dequeue());
         assertEquals("test0", customQueue.peek());
     }
+
+    @Test
+    void testGetSize() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+        customQueue.enqueue("test1");
+
+        assertEquals(2, customQueue.getQueueSize());
+    }
 }
