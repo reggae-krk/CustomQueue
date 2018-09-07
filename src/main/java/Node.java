@@ -1,9 +1,11 @@
 public class Node {
     private String value;
     private Node nextNode;
+    private int priority;
 
-    public Node(String value){
+    public Node(String value, int priority){
         this.value = value;
+        this.priority = priority;
     }
 
     public String getValue(){
