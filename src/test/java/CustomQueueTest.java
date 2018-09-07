@@ -8,8 +8,8 @@ class CustomQueueTest {
 
     private CustomQueue createQueue() {
         CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
-        customQueue.enqueue("test1");
+        customQueue.enqueue("test0", 1);
+        customQueue.enqueue("test1", 1);
         return customQueue;
     }
 
@@ -88,5 +88,19 @@ class CustomQueueTest {
         customQueue.dequeue();
 
         assertThrows(EmptyQueueException.class, () -> customQueue.dequeue());
+    }
+
+    @Test
+    void testDequeueWithDifferentPriorities() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test8", 8);
+        customQueue.enqueue("test5", 5);
+        customQueue.enqueue("test7", 7);
+        customQueue.enqueue("test10", 10);
+
+        assertEquals("test10", customQueue.dequeue());
+        assertEquals("test8", customQueue.dequeue());
+        assertEquals("test7", customQueue.dequeue());
+
     }
 }
