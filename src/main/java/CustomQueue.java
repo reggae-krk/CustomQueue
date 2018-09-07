@@ -12,6 +12,7 @@ public class CustomQueue {
             node.setNextNode(first);
             this.first = node;
         }
+        queueSize++;
     }
 
     public String peek() {
@@ -22,6 +23,7 @@ public class CustomQueue {
         Node newFirst = first.getNextNode();
         String dequeueElement = first.getValue();
         this.first = newFirst;
+        queueSize--;
         return dequeueElement;
     }
 }
