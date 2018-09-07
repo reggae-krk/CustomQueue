@@ -10,8 +10,8 @@ public class CustomQueue {
         }
         else {
             Node node = new Node(element);
-            node.setNextNode(first);
-            this.first = node;
+            updateLast();
+            this.last.setNextNode(node);
         }
         queueSize++;
     }
