@@ -6,12 +6,12 @@ public class CustomQueue {
     private Node last;
     private int queueSize = 0;
 
-    public void enqueue(String element) {
+    public void enqueue(String element, int priority) {
         if(this.first == null) {
-            this.first = new Node(element);
+            this.first = new Node(element, priority);
         }
         else {
-            Node node = new Node(element);
+            Node node = new Node(element, priority);
             updateLast();
             this.last.setNextNode(node);
         }
