@@ -5,6 +5,7 @@ public class CustomQueue {
     private Node first;
     private Node last;
     private int queueSize = 0;
+    private int higestPriority = 0;
 
     public void enqueue(String element, int priority) {
         if(this.first == null) {
@@ -47,5 +48,17 @@ public class CustomQueue {
     public boolean isEmpty() {
         if(first == null) return true;
         else return false;
+    }
+
+    private void updatePriority() {
+        Node tempNode = this.first;
+        this.higestPriority = tempNode.getPriority();
+
+        while (tempNode.getNextNode() != null) {
+            tempNode = tempNode.getNextNode();
+            if(tempNode.getPriority() > this.higestPriority) {
+                this.higestPriority = tempNode.getPriority();
+            }
+        }
     }
 }
