@@ -18,7 +18,7 @@ class CustomQueueTest {
         customQueue.enqueue("test0");
         customQueue.enqueue("test1");
 
-        assertEquals("test1", customQueue.peek());
+        assertEquals("test0", customQueue.peek());
     }
 
     @Test
@@ -28,8 +28,8 @@ class CustomQueueTest {
         customQueue.enqueue("test1");
 
 
-        assertEquals("test1", customQueue.dequeue());
-        assertEquals("test0", customQueue.peek());
+        assertEquals("test0", customQueue.dequeue());
+        assertEquals("test1", customQueue.peek());
     }
 
     @Test
