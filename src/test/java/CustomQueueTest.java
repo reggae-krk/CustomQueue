@@ -5,19 +5,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomQueueTest {
 
+
+    private CustomQueue createQueue() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+        customQueue.enqueue("test1");
+        return customQueue;
+    }
+
     @Test
     void testEnqueue() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test");
+        CustomQueue customQueue = createQueue();
 
-        assertEquals("test", customQueue.peek());
+        assertEquals("test0", customQueue.peek());
     }
 
     @Test
     void testPeek() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
-        customQueue.enqueue("test1");
+        CustomQueue customQueue = createQueue();
 
         assertEquals("test0", customQueue.peek());
     }
@@ -31,9 +36,7 @@ class CustomQueueTest {
 
     @Test
     void testDequeue() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
-        customQueue.enqueue("test1");
+        CustomQueue customQueue = createQueue();
 
 
         assertEquals("test0", customQueue.dequeue());
@@ -49,18 +52,14 @@ class CustomQueueTest {
 
     @Test
     void testGetSize() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
-        customQueue.enqueue("test1");
+        CustomQueue customQueue = createQueue();
 
         assertEquals(2, customQueue.getQueueSize());
     }
 
     @Test
     void testGetSizeAfterRemoveElement() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
-        customQueue.enqueue("test1");
+        CustomQueue customQueue = createQueue();
 
         customQueue.dequeue();
 
@@ -76,17 +75,16 @@ class CustomQueueTest {
 
     @Test
     void testIsEmptyWhenQueueIsNotEmpty() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
+        CustomQueue customQueue = createQueue();
 
         assertEquals(false, customQueue.isEmpty());
     }
 
     @Test
     void testIfDequeueMethodThrowsExceptionWhenRemoveAllElements() {
-        CustomQueue customQueue = new CustomQueue();
-        customQueue.enqueue("test0");
+        CustomQueue customQueue = createQueue();
 
+        customQueue.dequeue();
         customQueue.dequeue();
 
         assertThrows(EmptyQueueException.class, () -> customQueue.dequeue());
