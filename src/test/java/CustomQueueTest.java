@@ -20,4 +20,15 @@ class CustomQueueTest {
 
         assertEquals("test1", customQueue.peek());
     }
+
+    @Test
+    void testDequeue() {
+        CustomQueue customQueue = new CustomQueue();
+        customQueue.enqueue("test0");
+        customQueue.enqueue("test1");
+
+
+        assertEquals("test1", customQueue.dequeue());
+        assertEquals("test0", customQueue.peek());
+    }
 }
