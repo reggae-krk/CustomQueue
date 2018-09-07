@@ -26,4 +26,8 @@ public class CustomQueue {
         queueSize--;
         return dequeueElement;
     }
+
+    public int getQueueSize() {
+        return queueSize;
+    }
 }
