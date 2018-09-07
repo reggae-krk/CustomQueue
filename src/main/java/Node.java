@@ -19,4 +19,8 @@ public class Node {
     public void setNextNode(Node node) {
         this.nextNode = node;
     }
+
+    public int getPriority() {
+        return priority;
+    }
 }
