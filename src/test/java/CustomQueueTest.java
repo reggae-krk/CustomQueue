@@ -22,6 +22,13 @@ class CustomQueueTest {
     }
 
     @Test
+    void testPeekWhenQueueIsEmpty() {
+        final CustomQueue customQueue = new CustomQueue();
+
+        assertThrows(NullPointerException.class, () -> customQueue.peek());
+    }
+
+    @Test
     void testDequeue() {
         CustomQueue customQueue = new CustomQueue();
         customQueue.enqueue("test0");
