@@ -1,3 +1,5 @@
+import CustomException.EmptyQueueException;
+
 public class CustomQueue {
 
     private Node first;
@@ -17,7 +19,8 @@ public class CustomQueue {
     }
 
     public String peek() {
-        return first.getValue();
+        if (first != null) return first.getValue();
+        else throw new EmptyQueueException("Queue is empty");
     }
 
     public String dequeue() {

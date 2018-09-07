@@ -1,3 +1,4 @@
+import CustomException.EmptyQueueException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,9 +24,9 @@ class CustomQueueTest {
 
     @Test
     void testPeekWhenQueueIsEmpty() {
-        final CustomQueue customQueue = new CustomQueue();
+        CustomQueue customQueue = new CustomQueue();
 
-        assertThrows(NullPointerException.class, () -> customQueue.peek());
+        assertThrows(EmptyQueueException.class, () -> customQueue.peek());
     }
 
     @Test
