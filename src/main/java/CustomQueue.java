@@ -13,4 +13,8 @@ public class CustomQueue {
             this.first = node;
         }
     }
+
+    public String peek() {
+        return first.getValue();
+    }
 }
