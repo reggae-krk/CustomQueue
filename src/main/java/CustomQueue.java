@@ -25,10 +25,26 @@ public class CustomQueue {
     }
 
     public String dequeue() {
+        String dequeueElement = null;
         if(first == null) throw new EmptyQueueException("Queue is empty");
-        Node newFirst = first.getNextNode();
-        String dequeueElement = first.getValue();
-        this.first = newFirst;
+        updatePriority();
+        if (first.getPriority() == this.higestPriority) {
+            Node newFirst = first.getNextNode();
+            dequeueElement = first.getValue();
+            this.first = newFirst;
+        }
+        else {
+            Node tempNode = this.first;
+            while (tempNode.getNextNode() != null) {
+                Node previous = tempNode;
+                tempNode = tempNode.getNextNode();
+                if(tempNode.getPriority() == this.higestPriority) {
+                    previous.setNextNode(tempNode.getNextNode());
+                    dequeueElement = tempNode.getValue();
+                }
+            }
+        }
+
         queueSize--;
         return dequeueElement;
     }
